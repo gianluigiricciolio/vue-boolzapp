@@ -118,7 +118,8 @@
                     </p>
                     <i @click="toggleDropDownMenu(i)" class="fa-solid fa-angle-down"></i>
                     <div class="drop-down-menu" :class="{visible: clickedMessage==i}" >
-                        <div @click="deleteMessage(i)" >Cancella messaggio</div>
+                        <div 
+                            @click="deleteMessage(i)" >Cancella messaggio</div>
                         <div>Informazioni messaggio</div>
                     </div>
 

@@ -90,6 +90,11 @@ header{
     right:5px;
     color: var(--secondary-color);
     cursor: pointer;
+    display: none;
+}
+
+.message:hover > .fa-angle-down{
+    display: block;
 }
 
 .drop-down-menu{

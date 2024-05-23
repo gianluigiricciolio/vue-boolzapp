@@ -208,13 +208,15 @@ createApp({
             }, 1000);
         },
 
-        filteredContact2(){
-            if(!this.searchedContact) return this.contacts;
-            else {
-                return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchedContact.toLowerCase()));
-            }
-        },
-
+        // IN THIS WAY THE FILTERED ARRAY CHANGES INDEX FOR CONTACT
+        // filteredContact2(){
+        //     if(!this.searchedContact) return this.contacts;
+        //     else {
+        //         return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchedContact.toLowerCase()));
+        //     }
+        // },
+        
+        // IN THIS WAY INDEXES ARE THE SAME BUT VISIBLE PROPERTY IS SET TO FALSE
         filteredContact(){
             if(!this.searchedContact) return this.contacts;
             else {
@@ -228,14 +230,12 @@ createApp({
         },
 
         toggleDropDownMenu(i){
-            if(this.clickedMessage==null){
-                this.clickedMessage=i;
-            } else this.clickedMessage=null;
-            
+            if(this.clickedMessage==i){
+                this.clickedMessage=null;
+            } else this.clickedMessage=i;
         },
 
         deleteMessage(i){
-            console.log(i);
             this.contacts[this.selectedContact].messages.splice(i,1);
             this.clickedMessage=null;
         }
