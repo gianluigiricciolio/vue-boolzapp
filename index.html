@@ -63,9 +63,9 @@
             <ul class="chats">
                 <li 
                     v-for="(contact,i) in filteredContact()"
+                    v-show="contact.visible"
                     @click="changeSelectedContact(i)"
                 >
-                    
                     <div class="d-flex">
                         <img :src="contact.avatar" alt="PFP">
                         <div class="contact">

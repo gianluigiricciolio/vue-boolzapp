@@ -208,10 +208,22 @@ createApp({
             }, 1000);
         },
 
-        filteredContact(){
+        filteredContact2(){
             if(!this.searchedContact) return this.contacts;
             else {
                 return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchedContact.toLowerCase()));
+            }
+        },
+
+        filteredContact(){
+            if(!this.searchedContact) return this.contacts;
+            else {
+                return this.contacts.map((contact) => {
+                    if(contact.name.toLowerCase().includes(this.searchedContact.toLowerCase())) {
+                        return {...contact}
+                    } else return {...contact, visible: false};
+                    
+                })
             }
         },
 
