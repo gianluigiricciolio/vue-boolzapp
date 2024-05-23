@@ -170,6 +170,7 @@ createApp({
             ],
             currentTextMessage: '',
             selectedContact:    0,
+            searchedContact:    "",
             
 
 
@@ -199,10 +200,18 @@ createApp({
                 message: this.currentTextMessage,
                 status: 'sent'
             });
+            this.currentTextMessage='';
 
-            setTimeout( function(){
-                generateAnswer(msgs);
+            setTimeout( () =>{
+                this.generateAnswer(msgs);
             }, 1000);
+        },
+
+        filteredContact(){
+            if(!this.searchedContact) return this.contacts;
+            else {
+                return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchedContact.toLowerCase()));
+            }
         }
     },
 
