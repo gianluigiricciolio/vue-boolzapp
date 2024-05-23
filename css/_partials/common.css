@@ -73,23 +73,21 @@ header{
     color:var(--secondary-color)
 }
 
-.sender{
+.message{
     display: flex;
-    background-color: rgb(187, 246, 180);
     padding:10px;
     width:fit-content;
     width:70%;
     max-width:380px;
+}
+
+.sender{
+    background-color: rgb(187, 246, 180);
     margin-left: auto;
 }
 
 .receiver{
-    display: flex;
     background-color: rgb(255, 255, 255);
-    padding:10px;
-    width:fit-content;
-    width:70%;
-    max-width:380px;
     margin-right: auto;
 }
 

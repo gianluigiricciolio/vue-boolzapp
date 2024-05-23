@@ -61,7 +61,11 @@
                 </div>
             </div>
             <ul class="chats">
-                <li v-for="(contact,i) in contacts">
+                <li 
+                    v-for="(contact,i) in contacts"
+                    @click="changeSelectedContact(i)"
+                >
+                    
                     <div class="d-flex">
                         <img :src="contact.avatar" alt="PFP">
                         <div class="contact">
@@ -81,10 +85,10 @@
             <header>
                 <div class="row py-10p10p space-between">
                     <div class="d-flex">
-                        <img src="./img/avatar_1.jpg" alt="PFP">
+                        <img :src="contacts[selectedContact].avatar" alt="PFP">
                         <div class="contact d-flex column-direction justify-center gap-5p">
                             <div class="contact-name">
-                                Michele
+                                {{contacts[selectedContact].name}}
                             </div>
                             <div class="contact-info">
                                 Ultimo accesso oggi alle 16:26
@@ -105,60 +109,15 @@
             </header>
 
             <div class="chat-box d-flex column-direction gap-15p">
+                <div 
+                    v-for="(message,i) in contacts[selectedContact].messages"
+                    class="message"
+                    :class="{sender: message.status=='sent', receiver: message.status=='received'}" >
 
-                <div class="sender ">
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-
-                </div>
-
-                <div class="receiver ">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        {{message.message}}
                     </p>
                 </div>
-
-                <div class="sender ">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae officia eligendi veritatis deserunt ea nam itaque quo, nihil quos corporis eum quod incidunt rem consequatur repellat reiciendis dolor aspernatur quis.
-                    </p>
-
-                </div>
-
-                <div class="receiver ">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae officia eligendi veritatis deserunt ea nam itaque quo, nihil quos corporis eum quod incidunt rem consequatur repellat reiciendis dolor aspernatur quis.
-                    </p>
-                </div>
-
-                <div class="sender ">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-
-                </div>
-
-                <div class="receiver ">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-                </div>
-
-                <div class="sender ">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-
-                </div>
-
-                <div class="receiver ">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-                </div>
-
-                
             </div>
             <div class="input-box d-flex">
                 <button class="emojis-btn reset">

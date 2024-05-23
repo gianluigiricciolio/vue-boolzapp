@@ -167,7 +167,9 @@ createApp({
                         }
                     ],
                 }
-            ]
+            ],
+
+            selectedContact: 0,
             
 
 
@@ -178,7 +180,9 @@ createApp({
 
     methods: {
 
-
+        changeSelectedContact(i){
+            this.selectedContact=i;
+        }
 
     },
 
