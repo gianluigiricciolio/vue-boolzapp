@@ -168,8 +168,8 @@ createApp({
                     ],
                 }
             ],
-
-            selectedContact: 0,
+            currentTextMessage: '',
+            selectedContact:    0,
             
 
 
@@ -182,11 +182,34 @@ createApp({
 
         changeSelectedContact(i){
             this.selectedContact=i;
-        }
+        },
+        
+        generateAnswer(messageList) {
+            messageList.push({
+                date:'',
+                message: 'Ma cosa vuoi????!',
+                status: 'received'
+            });
+        },
 
+        sendMessage(){
+            const msgs=this.contacts[this.selectedContact].messages
+            msgs.push({
+                date:'',
+                message: this.currentTextMessage,
+                status: 'sent'
+            });
+
+            setTimeout( function(){
+                generateAnswer(msgs);
+            }, 1000);
+        }
     },
 
     mounted(){
         console.log('mounted');
     }
+
+    
+
 }).mount('#app');

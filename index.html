@@ -124,7 +124,7 @@
                     <i class="fa-regular fa-face-smile fa-xl"></i>
                 </button>
                 <div class="text-box bg-white d-flex align-center">
-                    <input class="reset" type="text" placeholder="Scrivi un messaggio">
+                    <input @keydown.enter="sendMessage" v-model="currentTextMessage" class="reset" type="text" placeholder="Scrivi un messaggio">
                 </div>
                 <button class="audio-btn reset">
                     <i class="fa-solid fa-microphone fa-xl"></i>
