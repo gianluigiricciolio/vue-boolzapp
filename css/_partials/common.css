@@ -10,6 +10,7 @@ body{
         rgb(200, 200, 200) 100%
       );
     font-family: Lato;
+    user-select: none;
 }
 
 header{
@@ -38,6 +39,7 @@ header{
     flex-grow: 1;
     padding: 25px 20px;
     overflow: auto;
+    user-select: text;
 }
 
 .input-box{
@@ -75,11 +77,41 @@ header{
 
 .message{
     display: flex;
-    padding:10px;
+    padding:15px;
     width:fit-content;
     width:70%;
     max-width:380px;
+    position: relative;
 }
+
+.fa-angle-down{
+    position:absolute;
+    top:2px;
+    right:5px;
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+.drop-down-menu{
+    position:absolute;
+    top:13px;
+    right:12px;
+    background-color: white;
+    display: none;
+    cursor: default;
+    z-index: 999;
+}
+
+.drop-down-menu.visible{
+    display: block;
+}
+
+.drop-down-menu *{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+
 
 .sender{
     background-color: rgb(187, 246, 180);
@@ -190,6 +222,10 @@ header{
         display: flex;
         padding:10px;
         border-top:1px solid rgb(199, 199, 199);
+    }
+    .chats li:active{
+        /* max-height: 95px; */
+        background-color: beige;
     }
 
     .chat-box{

@@ -171,6 +171,7 @@ createApp({
             currentTextMessage: '',
             selectedContact:    0,
             searchedContact:    "",
+            clickedMessage:     null
             
 
 
@@ -212,7 +213,15 @@ createApp({
             else {
                 return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchedContact.toLowerCase()));
             }
-        }
+        },
+
+        showDropDownMenu(i){
+            if(this.clickedMessage==null){
+                this.clickedMessage=i;
+                console.log(this.clickedMessage, i);
+            } else this.clickedMessage=null;
+            
+        },
     },
 
     mounted(){

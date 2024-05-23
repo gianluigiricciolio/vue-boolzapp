@@ -75,7 +75,6 @@
                             <div class="last-message">
                                 {{ contact.messages[contact.messages.length-1].message }}
                             </div>
-
                         </div>
                     </div>
                 </li>
@@ -117,6 +116,12 @@
                     <p>
                         {{message.message}}
                     </p>
+                    <i @click="showDropDownMenu(i)" class="fa-solid fa-angle-down"></i>
+                    <div class="drop-down-menu" :class="{visible: clickedMessage==i}" >
+                        <div>Cancella messaggio</div>
+                        <div>Informazioni messaggio</div>
+                    </div>
+
                 </div>
             </div>
             <div class="input-box d-flex">
