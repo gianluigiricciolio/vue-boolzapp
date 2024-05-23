@@ -236,8 +236,10 @@ createApp({
         },
 
         deleteMessage(i){
-            this.contacts[this.selectedContact].messages.splice(i,1);
             this.clickedMessage=null;
+            if (i >= 0 && i < this.contacts[this.selectedContact].messages.length) {
+                this.contacts[this.selectedContact].messages.splice(i, 1);
+            }
         }
     },
 

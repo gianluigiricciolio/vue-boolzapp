@@ -73,7 +73,8 @@
                                 {{contact.name}}
                             </div>
                             <div class="last-message">
-                                {{ contact.messages[contact.messages.length-1].message }}
+                                <!-- to prevent the array to access an invalid element it gives empty string if length is 0 -->
+                                {{ contact.messages.length > 0 ? contact.messages[contact.messages.length - 1].message : '' }}
                             </div>
                         </div>
                     </div>

@@ -99,8 +99,8 @@ header{
 
 .drop-down-menu{
     position:absolute;
-    top:13px;
-    right:12px;
+    top:15px;
+    right:14px;
     background-color: white;
     display: none;
     cursor: default;
