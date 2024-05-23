@@ -1,0 +1,304 @@
+body{
+    display:flex;
+    height:100vh;
+    width:100vw;
+    background: linear-gradient(
+        to bottom,
+        rgb(57, 136, 112) 0%,
+        rgb(57, 136, 112) 20%,
+        rgb(200, 200, 200) 20%,
+        rgb(200, 200, 200) 100%
+      );
+    font-family: Lato;
+}
+
+header{
+    background-color: var(--primary-color);
+    height:var(--header-height);
+}
+
+.sidebar img, header img{
+    border-radius: 50%;
+    max-height: 55px;
+}
+
+.main-container{
+    display: flex;
+    height:100%;
+    width:100%;
+}
+
+.sidebar{
+    display: none;
+    
+}
+
+.chat-box{
+    background-color: beige;
+    flex-grow: 1;
+    padding: 25px 20px;
+    overflow: auto;
+}
+
+.input-box{
+    height: var(--header-height);
+    background-color: var(--primary-color);
+    padding: 12px 25px;
+    width:100%;
+}
+
+.input-box button{
+    display:none;
+}
+
+.text-box{
+    width: 100%;
+    height:100%;
+    border-radius: 3px;
+    padding:10px 20px;
+}
+
+.contact{
+    margin-left:18px;
+    display: none;
+}
+
+.contact-name{
+    font-size: 1.11em;
+    color:black
+}
+
+.contact-info{
+    font-size: 0.85em;
+    color:var(--secondary-color)
+}
+
+.sender{
+    display: flex;
+    background-color: rgb(187, 246, 180);
+    padding:10px;
+    width:fit-content;
+    width:70%;
+    max-width:380px;
+    margin-left: auto;
+}
+
+.receiver{
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    padding:10px;
+    width:fit-content;
+    width:70%;
+    max-width:380px;
+    margin-right: auto;
+}
+
+.fa-xl{
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+/* LAYOUT */
+
+.row{
+    display:flex;
+}
+
+.content{
+    background-color: pink;
+    height:100%;
+    flex-grow: 1;
+}
+
+/* UTILITY */
+
+.max-width-450p{
+    max-width: 450px;
+}
+
+.py-10p{
+    padding:10px;
+}
+
+.py-10p10p{
+    padding:10px 10px;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.column-direction{
+    flex-direction: column;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.gap-5p{
+    gap:5px;
+}
+
+.gap-15p{
+    gap:15px;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.space-between{
+    justify-content: space-between;
+}
+
+.bg-white{
+    background-color: white;
+}
+
+.secondary-color{
+    color: var(--secondary-color);
+}
+
+
+/* RESPONSIVENESS */
+
+@media screen and (min-width:576px) {
+
+    .sidebar{
+        background-color: white;
+        display: block;
+        min-width: 75px;
+        height:100%;
+        overflow-y: hidden;
+        border-right:1px solid var(--secondary-color);
+    }
+
+    .left .action-icons{
+        display: none;
+    }
+    
+    .action-icons{
+        display: flex;
+    }
+
+    .chats{
+        height: calc(100% - 75px);
+        overflow-y: auto;
+    }
+    
+    .chats li{
+        /* max-height: 95px; */
+        display: flex;
+        padding:10px;
+        border-top:1px solid rgb(199, 199, 199);
+    }
+
+    .chat-box{
+        padding: 35px 30px;
+    }
+
+    ul{
+        list-style: none;
+    }
+
+    .notifications{
+        display:none;
+    }
+    
+    .search{
+        display: none;
+    }
+    
+    .search-box{
+        height:100%;
+        border-radius: 2px;
+        padding:10px 15px;
+    }
+
+    .input-box{
+        padding:10px 0px;
+    }
+    
+    .input-box button{
+        display:block;
+        padding: 12px 30px;
+    }
+
+    
+}
+
+@media screen and (min-width:992px) {
+
+    .main-container{
+        height:95%;
+        width:80%;
+        margin:auto;
+    }
+
+    .sidebar{
+        display: block;
+        width:30%;
+        min-width: 400px;
+        
+    }
+
+    .notifications{
+        display:block;
+        background-color: var(--notification-color);
+        height:var(--header-height);
+    }
+
+    .left .action-icons{
+        display: flex;
+    }
+
+    .circle{
+        border-radius: 50%;
+        height: 55px;
+        width: 55px;
+        background-color: white;
+    }
+    
+    .search{
+        display: block;
+        padding:10px;
+        background-color: var(--primary-color);
+        /* height:45px; */
+    }
+
+    .chats{
+        height: calc(100% - 210px);
+    }
+
+    .chat-box{
+        padding: 35px 60px;
+    }
+
+    .contact{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .last-message{
+        color:var(--secondary-color);
+    }
+
+    .desktop-message{
+        color:var(--secondary-color);
+        text-decoration: underline;
+    }
+
+    .notification-color{
+        text-align: center;
+        color: var(--notification-color);
+    }
+
+    .search .fa-magnifying-glass{
+        color: var(--secondary-color);
+        margin: 0px 25px 0px 15px;
+    }
+}
+
