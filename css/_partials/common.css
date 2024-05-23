@@ -99,6 +99,7 @@ header{
     background-color: white;
     display: none;
     cursor: default;
+    user-select: none;
     z-index: 999;
 }
 

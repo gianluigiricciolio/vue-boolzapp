@@ -215,13 +215,18 @@ createApp({
             }
         },
 
-        showDropDownMenu(i){
+        toggleDropDownMenu(i){
             if(this.clickedMessage==null){
                 this.clickedMessage=i;
-                console.log(this.clickedMessage, i);
             } else this.clickedMessage=null;
             
         },
+
+        deleteMessage(i){
+            console.log(i);
+            this.contacts[this.selectedContact].messages.splice(i,1);
+            this.clickedMessage=null;
+        }
     },
 
     mounted(){
