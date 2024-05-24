@@ -94,6 +94,7 @@ header{
 
 .chats .message-time{
     margin:5px;
+    display: none;
 }
 
 .fa-angle-down{
@@ -325,6 +326,10 @@ header{
 
     .chats{
         height: calc(100% - 210px);
+    }
+
+    .chats .message-time{
+        display: block;
     }
 
     .chat-box{
