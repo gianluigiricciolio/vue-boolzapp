@@ -172,11 +172,6 @@ createApp({
             selectedContact:    0,
             searchedContact:    "",
             clickedMessage:     null
-            
-
-
-
-
         }
     },
 
@@ -222,8 +217,8 @@ createApp({
             else {
                 return this.contacts.map((contact) => {
                     if(contact.name.toLowerCase().includes(this.searchedContact.toLowerCase())) {
-                        return {...contact}
-                    } else return {...contact, visible: false};
+                        return { ...contact }
+                    } else return { ...contact, visible: false };
                     
                 })
             }

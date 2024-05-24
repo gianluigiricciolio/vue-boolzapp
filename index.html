@@ -47,9 +47,7 @@
                         <div class="desktop-message">
                             Attiva notifiche desktop
                         </div>
-
                     </div>
-                    
                 </div>
             </div>
             <div class="search">
@@ -72,9 +70,9 @@
                             <div class="contact-name">
                                 {{contact.name}}
                             </div>
-                            <div class="last-message">
+                            <div v-if="contact.messages.length" class="last-message">
                                 <!-- to prevent the array to access an invalid element it gives empty string if length is 0 -->
-                                {{ contact.messages.length > 0 ? contact.messages[contact.messages.length - 1].message : '' }}
+                                {{contact.messages[contact.messages.length - 1].message}}
                             </div>
                         </div>
                     </div>
@@ -110,8 +108,8 @@
 
             <div class="chat-box d-flex column-direction gap-15p">
                 <div 
-                    v-for="(message,i) in contacts[selectedContact].messages"
                     class="message"
+                    v-for="(message,i) in contacts[selectedContact].messages"
                     :class="{sender: message.status=='sent', receiver: message.status=='received'}" >
 
                     <p>
@@ -123,6 +121,7 @@
                             @click="deleteMessage(i)" >Cancella messaggio</div>
                         <div>Informazioni messaggio</div>
                     </div>
+                    <div class="message-time">{{message.date}}</div>
 
                 </div>
             </div>
