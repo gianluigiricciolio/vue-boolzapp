@@ -70,12 +70,16 @@
                             <div class="contact-name">
                                 {{contact.name}}
                             </div>
-                            <div v-if="contact.messages.length" class="last-message">
+                            <div 
+                                class="last-message"
+                                v-if="contact.messages.length"
+                            >
                                 <!-- to prevent the array to access an invalid element it gives empty string if length is 0 -->
                                 {{contact.messages[contact.messages.length - 1].message}}
                             </div>
                         </div>
                     </div>
+                    <div class="message-time">{{printDate(contact.messages[contact.messages.length - 1].date)}}</div>
                 </li>
             </ul>
         </div>
@@ -111,6 +115,7 @@
                     class="message"
                     v-for="(message,i) in contacts[selectedContact].messages"
                     :class="{sender: message.status=='sent', receiver: message.status=='received'}" >
+                
 
                     <p>
                         {{message.message}}
@@ -121,7 +126,7 @@
                             @click="deleteMessage(i)" >Cancella messaggio</div>
                         <div>Informazioni messaggio</div>
                     </div>
-                    <div class="message-time">{{message.date}}</div>
+                    <div class="message-time">{{printDate(message.date)}}</div>
 
                 </div>
             </div>
@@ -143,6 +148,8 @@
 
     <!-- vue js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- luxon library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js" integrity="sha512-dUlSLLkxslGILhPdCkALwk4szPhp3xmZIKFtlUD+O9Lslq41Aksmdt5OGqpomDoT4FsCUH70jQU8ezZHI3v1RQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- my js -->
     <script src="./js/main.js"></script>
 </body>

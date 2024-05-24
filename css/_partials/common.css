@@ -85,11 +85,15 @@ header{
 }
 
 .message-time{
-    font-size: small;
+    font-size: 0.8em;
     color: var(--secondary-color);
     position: absolute;
     right:5px;
     bottom:5px;
+}
+
+.chats .message-time{
+    margin:5px;
 }
 
 .fa-angle-down{
@@ -239,6 +243,7 @@ header{
         display: flex;
         padding:10px;
         border-top:1px solid rgb(199, 199, 199);
+        position: relative;
     }
     .chats li:active{
         /* max-height: 95px; */

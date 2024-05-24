@@ -183,7 +183,7 @@ createApp({
         
         generateAnswer(messageList) {
             messageList.push({
-                date:'',
+                date: luxon.DateTime.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
                 message: 'Ma cosa vuoi????!',
                 status: 'received'
             });
@@ -192,24 +192,15 @@ createApp({
         sendMessage(){
             const msgs=this.contacts[this.selectedContact].messages
             msgs.push({
-                date:'',
+                date: luxon.DateTime.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
                 message: this.currentTextMessage,
                 status: 'sent'
             });
             this.currentTextMessage='';
-
             setTimeout( () =>{
                 this.generateAnswer(msgs);
             }, 1000);
         },
-
-        // IN THIS WAY THE FILTERED ARRAY CHANGES INDEX FOR CONTACT
-        // filteredContact2(){
-        //     if(!this.searchedContact) return this.contacts;
-        //     else {
-        //         return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searchedContact.toLowerCase()));
-        //     }
-        // },
         
         // IN THIS WAY INDEXES ARE THE SAME BUT VISIBLE PROPERTY IS SET TO FALSE
         filteredContact(){
@@ -235,13 +226,18 @@ createApp({
             if (i >= 0 && i < this.contacts[this.selectedContact].messages.length) {
                 this.contacts[this.selectedContact].messages.splice(i, 1);
             }
+        },
+
+        printDate(date){
+            const myDate = luxon.DateTime.fromFormat(date, 'dd/MM/yyyy HH:mm:ss');
+            console.log
+            return myDate.toFormat('HH:mm');
         }
     },
 
     mounted(){
-        console.log('mounted');
+    
     }
 
-    
 
 }).mount('#app');
