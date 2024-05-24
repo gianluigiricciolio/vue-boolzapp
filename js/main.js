@@ -218,8 +218,14 @@ createApp({
         toggleDropDownMenu(i){
             if(this.clickedMessage==i){
                 this.clickedMessage=null;
-            } else this.clickedMessage=i;
+                document.removeEventListener('click', this.handleClickOutside);
+            } else {
+                this.clickedMessage=i;
+                this.handleClickOutside();
+            }
+            console.log(this.clickedMessage);
         },
+        
 
         deleteMessage(i){
             this.clickedMessage=null;
@@ -232,11 +238,22 @@ createApp({
             const myDate = luxon.DateTime.fromFormat(date, 'dd/MM/yyyy HH:mm:ss');
             console.log
             return myDate.toFormat('HH:mm');
+        },
+
+        handleClickOutside(){
+            document.addEventListener('click', (event)=>{
+            
+                if (event.target.classList.contains('toggle-menu')) {
+                return;
+            }
+                this.clickedMessage=null;
+                console.log('triggered', this.clickedMessage);
+            })
         }
     },
 
     mounted(){
-    
+        
     }
 
 

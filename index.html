@@ -74,12 +74,15 @@
                                 class="last-message"
                                 v-if="contact.messages.length"
                             >
-                                <!-- to prevent the array to access an invalid element it gives empty string if length is 0 -->
                                 {{contact.messages[contact.messages.length - 1].message}}
                             </div>
                         </div>
                     </div>
-                    <div class="message-time">{{printDate(contact.messages[contact.messages.length - 1].date)}}</div>
+                    <div
+                        class="message-time"
+                        v-if="contact.messages.length"
+                    >
+                    {{printDate(contact.messages[contact.messages.length - 1].date)}}</div>
                 </li>
             </ul>
         </div>
@@ -120,7 +123,7 @@
                     <p>
                         {{message.message}}
                     </p>
-                    <i @click="toggleDropDownMenu(i)" class="fa-solid fa-angle-down"></i>
+                    <i @click="toggleDropDownMenu(i)" class="fa-solid fa-angle-down toggle-menu"></i>
                     <div class="drop-down-menu" :class="{visible: clickedMessage==i}" >
                         <div 
                             @click="deleteMessage(i)" >Cancella messaggio</div>
