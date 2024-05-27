@@ -30,8 +30,36 @@ header{
 }
 
 .sidebar{
+    background-color: white;
     display: none;
-    
+    position: fixed;
+    height:100%;
+    overflow-y: hidden;
+    border-right:1px solid var(--secondary-color);
+    width:100%;
+    z-index: 999;
+}
+
+.notifications{
+    display:none;
+}
+
+.search{
+    display: block;
+    padding:10px;
+    background-color: var(--primary-color);
+    /* height:45px; */
+}
+
+.search .fa-magnifying-glass{
+    color: var(--secondary-color);
+    margin: 0px 25px 0px 15px;
+}
+
+.search-box{
+    height:100%;
+    border-radius: 2px;
+    padding:10px 15px;
 }
 
 .chat-box{
@@ -61,8 +89,16 @@ header{
 }
 
 .contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
     margin-left:18px;
-    display: none;
+}
+
+
+.last-message{
+    color:var(--secondary-color);
 }
 
 .contact-name{
@@ -72,7 +108,7 @@ header{
 
 .contact-info{
     font-size: 0.85em;
-    color:var(--secondary-color)
+    color:var(--secondary-color);
 }
 
 .message{
@@ -95,6 +131,28 @@ header{
 .chats .message-time{
     margin:5px;
     display: none;
+}
+
+.chats{
+    height: calc(100% - 132px);
+    overflow: auto;
+}
+
+.chats .message-time{
+    display: block;
+}
+
+.chats li{
+    /* max-height: 95px; */
+    display: flex;
+    padding:10px;
+    border-top:1px solid rgb(199, 199, 199);
+    position: relative;
+}
+
+.chats li:active{
+    /* max-height: 95px; */
+    background-color: beige;
 }
 
 .fa-angle-down{
@@ -122,7 +180,7 @@ header{
     z-index: 999;
 }
 
-.drop-down-menu.visible{
+.visible{
     display: block;
 }
 
@@ -149,6 +207,10 @@ header{
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+}
+
+.left .action-icons{
+    display: flex;
 }
 
 .fa-xl{
@@ -225,8 +287,9 @@ header{
 
     .sidebar{
         background-color: white;
+        position:static;
         display: block;
-        min-width: 75px;
+        width: 75px;
         height:100%;
         overflow-y: hidden;
         border-right:1px solid var(--secondary-color);
@@ -245,17 +308,7 @@ header{
         overflow-y: auto;
     }
     
-    .chats li{
-        /* max-height: 95px; */
-        display: flex;
-        padding:10px;
-        border-top:1px solid rgb(199, 199, 199);
-        position: relative;
-    }
-    .chats li:active{
-        /* max-height: 95px; */
-        background-color: beige;
-    }
+    
 
     .chat-box{
         padding: 35px 30px;
@@ -264,19 +317,9 @@ header{
     ul{
         list-style: none;
     }
-
-    .notifications{
-        display:none;
-    }
     
     .search{
         display: none;
-    }
-    
-    .search-box{
-        height:100%;
-        border-radius: 2px;
-        padding:10px 15px;
     }
 
     .input-box{
@@ -288,6 +331,17 @@ header{
         padding: 12px 30px;
     }
 
+    .chats .message-time{
+        display: none;
+    }
+
+    .sidebar .contact{
+        display: none;
+    }
+
+    .fa-arrow-left{
+        display: none;
+    }
     
 }
 
@@ -304,6 +358,11 @@ header{
         width:30%;
         min-width: 400px;
         
+    }
+
+    
+    .sidebar .contact{
+        display: block;
     }
 
     .notifications{
@@ -342,17 +401,6 @@ header{
         padding: 35px 60px;
     }
 
-    .contact{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 5px;
-    }
-
-    .last-message{
-        color:var(--secondary-color);
-    }
-
     .desktop-message{
         color:var(--secondary-color);
         text-decoration: underline;
@@ -363,9 +411,5 @@ header{
         color: var(--notification-color);
     }
 
-    .search .fa-magnifying-glass{
-        color: var(--secondary-color);
-        margin: 0px 25px 0px 15px;
-    }
 }
 

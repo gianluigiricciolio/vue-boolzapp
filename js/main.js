@@ -179,6 +179,8 @@ createApp({
 
         changeSelectedContact(i){
             this.selectedContact=i;
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.remove('visible');
         },
         
         generateAnswer(messageList) {
@@ -249,6 +251,11 @@ createApp({
                 this.clickedMessage=null;
                 console.log('triggered', this.clickedMessage);
             })
+        },
+
+        openContacts(){
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.add('visible');
         }
     },
 
