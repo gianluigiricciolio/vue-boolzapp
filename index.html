@@ -41,7 +41,7 @@
                     </div>
                     
                     <div class="contact">
-                        <div class="contact-name">
+                        <div class="notifications-text">
                             Ricevi notifiche di nuovi messaggi
                         </div>
                         <div class="desktop-message">
@@ -117,7 +117,7 @@
                 </div>
             </header>
 
-            <div class="chat-box d-flex column-direction gap-15p">
+            <div id="chat-box" class="chat-box d-flex column-direction gap-15p">
                 <div 
                     class="message"
                     v-for="(message,i) in contacts[selectedContact].messages"

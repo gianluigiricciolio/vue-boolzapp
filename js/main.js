@@ -168,6 +168,15 @@ createApp({
                     ],
                 }
             ],
+            answers: [
+                'Ciao come stai?',
+                'Hai visto che bella giornata?',
+                'Che fai domani?',
+                'Hai fatto commit and push?',
+                'Lorem ipsum a caso...',
+                'Hai fatto la spesa?',
+                '...?'
+            ],
             currentTextMessage: '',
             selectedContact:    0,
             searchedContact:    "",
@@ -184,9 +193,14 @@ createApp({
         },
         
         generateAnswer(messageList) {
+            const random = parseInt(Math.random()*(this.answers.length -1));
+            const myMsg = this.answers[random];
+            console.log(myMsg,this.answers.length,random);
+
+
             messageList.push({
                 date: luxon.DateTime.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
-                message: 'Ma cosa vuoi????!',
+                message: myMsg,
                 status: 'received'
             });
         },
@@ -202,6 +216,12 @@ createApp({
             setTimeout( () =>{
                 this.generateAnswer(msgs);
             }, 1000);
+        },
+
+        scrollToBottom() {
+            const container = document.getElementById('chat-box');
+            const lastMessage = container.lastElementChild;
+            lastMessage.scrollIntoView();
         },
         
         // IN THIS WAY INDEXES ARE THE SAME BUT VISIBLE PROPERTY IS SET TO FALSE
@@ -271,6 +291,10 @@ createApp({
 
     mounted(){
         
+    },
+
+    updated(){
+        this.scrollToBottom();
     }
 
 

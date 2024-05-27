@@ -107,6 +107,11 @@ header{
     color:black
 }
 
+.notifications-text{
+    font-size: 1.05em;
+    color:black
+}
+
 .contact-info{
     font-size: 0.85em;
     color:var(--secondary-color);
