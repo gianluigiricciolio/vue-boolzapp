@@ -94,6 +94,7 @@ header{
     justify-content: center;
     gap: 5px;
     margin-left:18px;
+    padding-right: 50px;
 }
 
 
@@ -114,10 +115,15 @@ header{
 .message{
     display: flex;
     padding:10px 10px 25px 10px;
-    width:fit-content;
     width:70%;
     max-width:380px;
     position: relative;
+    word-wrap: break-word;
+}
+
+.message p{
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
 .message-time{

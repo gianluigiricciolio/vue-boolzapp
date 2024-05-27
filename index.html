@@ -95,13 +95,14 @@
                             <div class="contact-name">
                                 {{contacts[selectedContact].name}}
                             </div>
-                            <div class="contact-info">
-                                Ultimo accesso oggi alle 16:26
+                            <div 
+                                v-if="contacts[selectedContact].messages.length"
+                                class="contact-info">
+                                {{contactInfo(contacts[selectedContact].messages)}} 
                             </div>
                         </div>
                     </div>
                     
-
                     <div class="action-icons d-flex">
                         <div class="row align-center justify-centers gap-15p">
                             <i 

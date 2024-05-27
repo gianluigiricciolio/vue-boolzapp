@@ -256,6 +256,16 @@ createApp({
         openContacts(){
             const sidebar = document.querySelector('.sidebar');
             sidebar.classList.add('visible');
+        },
+
+        contactInfo(messages){
+            if(!messages)
+                return null;
+            let lastMessageLine = 'Ultimo accesso oggi alle ';
+            const date = messages[messages.length-1].date;
+            lastMessageLine+= this.printDate(date);
+
+            return lastMessageLine;
         }
     },
 
