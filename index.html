@@ -95,11 +95,18 @@
                             <div class="contact-name">
                                 {{contacts[selectedContact].name}}
                             </div>
+                            <div
+                                class="contact-info"
+                                v-if="isTyping"
+                                    >
+                                Sta scrivendo...
+                            </div>
                             <div 
-                                v-if="contacts[selectedContact].messages.length"
+                                v-else-if="contacts[selectedContact].messages.length"
                                 class="contact-info">
                                 {{contactInfo(contacts[selectedContact].messages)}} 
                             </div>
+                            
                         </div>
                     </div>
                     
@@ -141,9 +148,9 @@
                 <button class="emojis-btn reset">
                     <i class="fa-regular fa-face-smile fa-xl"></i>
                 </button>
-                <div class="text-box bg-white d-flex align-center">
-                    <input @keydown.enter="sendMessage" v-model="currentTextMessage" class="reset" type="text" placeholder="Scrivi un messaggio">
-                </div>
+                <label for="chat-input" class="text-box bg-white d-flex align-center">
+                    <input @keydown.enter="sendMessage" v-model="currentTextMessage" id="chat-input" class="chat-input reset" type="text" placeholder="Scrivi un messaggio">
+                </label>
                 <button class="audio-btn reset">
                     <i class="fa-solid fa-microphone fa-xl"></i>
                 </button>

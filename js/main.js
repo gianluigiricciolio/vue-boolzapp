@@ -175,12 +175,21 @@ createApp({
                 'Hai fatto commit and push?',
                 'Lorem ipsum a caso...',
                 'Hai fatto la spesa?',
-                '...?'
+                '...?',
+                'Hai portato a spasso il cane?',
+                'Ricordati di stendere i panni',
+                'Tutto fatto!',
+                'Bene grazie! Stasera ci vediamo?',
+                'Va bene, stasera la sento',
+                'Nessuna nuova, buona nuova',
+                'OK!!',
+                'Ciao, andiamo a mangiare la pizza stasera?'
             ],
             currentTextMessage: '',
             selectedContact:    0,
             searchedContact:    "",
-            clickedMessage:     null
+            clickedMessage:     null,
+            isTyping:           false,
         }
     },
 
@@ -213,15 +222,18 @@ createApp({
                 status: 'sent'
             });
             this.currentTextMessage='';
+            this.isTyping=true;
             setTimeout( () =>{
                 this.generateAnswer(msgs);
-            }, 1000);
+                this.isTyping=false;
+            }, 2000);
         },
 
         scrollToBottom() {
             const container = document.getElementById('chat-box');
             const lastMessage = container.lastElementChild;
-            lastMessage.scrollIntoView();
+            if (lastMessage)
+                lastMessage.scrollIntoView();
         },
         
         // IN THIS WAY INDEXES ARE THE SAME BUT VISIBLE PROPERTY IS SET TO FALSE
@@ -281,6 +293,7 @@ createApp({
         contactInfo(messages){
             if(!messages)
                 return null;
+
             let lastMessageLine = 'Ultimo accesso oggi alle ';
             const date = messages[messages.length-1].date;
             lastMessageLine+= this.printDate(date);
