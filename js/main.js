@@ -190,6 +190,7 @@ createApp({
             searchedContact:    "",
             clickedMessage:     null,
             isTyping:           false,
+            typingText:         'Sta scrivendo',
         }
     },
 
@@ -223,6 +224,7 @@ createApp({
             });
             this.currentTextMessage='';
             this.isTyping=true;
+            this.typing();
             setTimeout( () =>{
                 this.generateAnswer(msgs);
                 this.isTyping=false;
@@ -299,6 +301,19 @@ createApp({
             lastMessageLine+= this.printDate(date);
 
             return lastMessageLine;
+        },
+
+        typing(){
+            const intervalId = setInterval( ()=>{
+                if(this.typingText.length<'Sta scrivendo...'.length)
+                    this.typingText+='.';
+                else
+                    this.typingText='Sta scrivendo';
+            },400)
+            setTimeout( ()=>{
+                clearInterval(intervalId);
+                this.typingText='Sta scrivendo';
+            },1500);
         }
     },
 
