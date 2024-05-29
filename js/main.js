@@ -272,7 +272,6 @@ createApp({
 
         printDate(date){
             const myDate = luxon.DateTime.fromFormat(date, 'dd/MM/yyyy HH:mm:ss');
-            console.log
             return myDate.toFormat('HH:mm');
         },
 
